@@ -1,0 +1,87 @@
+package cz.gymjs.serial;
+
+import android.content.Context;
+import android.graphics.Point;
+import android.hardware.usb.UsbDeviceConnection;
+import android.hardware.usb.UsbManager;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SeekBar;
+
+import com.hoho.android.usbserial.driver.UsbSerialDriver;
+import com.hoho.android.usbserial.driver.UsbSerialPort;
+import com.hoho.android.usbserial.driver.UsbSerialProber;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+public class MainActivity extends AppCompatActivity {
+
+    DcMotor motorleft;
+    DcMotor motorright;
+    List<Point> plechovky = new ArrayList<>();
+    List<Point> roboti = new ArrayList<>();
+    List<Point> vzdalenost = new ArrayList<>();
+    List<Point> planB = new ArrayList<>();
+    List<Point> hodnotycesty = new ArrayList<>();
+    List<Point> delivery = new ArrayList<>();
+    List<Point> otoc = new ArrayList<>();
+    List<Point> vzdalenostodplechovky = new ArrayList<>();
+
+    public float[] jizda(float x, float y, float rotation, float x1, float y1) {
+        float full = 300;
+        float beta = (float) Math.atan2(y1 - y, x1 - x);
+        float alfa = beta + rotation;
+        float c = (float) (1 / Math.tan(alfa));
+        float[] motory = new float[2];
+
+        if (alfa < 0) {
+            motory[0] = full;
+            if (alfa > -Math.PI / 2) {
+                motory[1] = c * full;
+            } else {
+                motory[1] = 0;
+            }
+
+        } else {
+            motory[1] = full;
+            if (alfa < Math.PI / 2) {
+                motory[0] = c * full;
+            } else {
+                motory[0] = 0;
+            }
+        }
+
+        public void gameon() throws InterruptedException {
+            if (roboti.isEmpty()) {
+                if (vzdalenost < 10) {
+                    rotate(-300, -300);
+                    Thread.sleep(1500);
+                }
+            } else if (casodzacatku > 2:30){
+                if (y=100;140) {
+                    rotate(300, -300);
+                    Thread.sleep(400);
+                    rotate(300, 300);
+                    Thread.sleep(7000);
+                else move towards [0;120];
+            } else if (!plechovky.isEmpty()) {
+                (hodnotycesty);
+                if (vzdalenostodplechovky<5){
+                    (delivery);
+                } else {
+                    rotate(-300, 300);
+                    Thread.sleep(500);)
+                }
+            }
+        }
+    }
